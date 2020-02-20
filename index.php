@@ -1,7 +1,9 @@
 
 <?php
- $text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ';
- $modify = 'tempor';
+ $text = "Le stazioni si somigliano tutte; poco importa se le luci non riescono a rischiarare più in là del loro alone sbavato, tanto questo è un ambiente che tu conosci a memoria, con l'odore di treno che resta anche dopo che tutti i treni sono partiti, l'odore speciale delle stazioni dopo che è partito l'ultimo treno. Le luci della stazione e le frasi che stai leggendo sembra abbiano il compito di dissolvere più che di indicare le cose affioranti da un velo di buio e di nebbia. Io sono sbarcato in questa stazione stasera per la prima volta in vita mia e già mi sembra d'averci passato una vita, entrando e uscendo da questo bar, passando dall'odore della pensilina all'odore di segatura bagnata dei gabinetti, tutto mescolato in un unico odore che è quello dell'attesa, l'odore delle cabine telefoniche quando non resta che recuperare i gettoni perché il numero chiamato non dà segno di vita.";
+
+ $modify = $_GET['modify'];
+ $author = $_GET['author'];
  ?>
 
 
@@ -12,9 +14,15 @@
     <title>php badwords</title>
   </head>
   <body>
-  <p><?php echo $text; ?></p>
+  <p data-author="<?php echo $author; ?>"><?php echo $text; ?></p>
   <p>lunghezza testo: <?php echo strlen($text);?> carrateri</p>
-  <p><?php echo str_replace($modify, '***',$text  ); ?></p>
+  <p>
+    <?php $new_text = str_replace($modify, '***',$text);
+    echo $new_text;
+   ?>
+ </p>
+ <p>lunghezza testo: <?php echo strlen($new_text);?> carrateri</p>
+
 
   </body>
 </html>
